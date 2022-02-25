@@ -18,7 +18,7 @@ To make this plugin work you will have to create your own application with slack
     Or you can set on your wp_config.php
 
     `define( 'SLACK_CLIENT_ID', 'XXXXXXXXXXXXX.XXXXXXXXXXXXXXX' );`
-    
+
     `define( 'SLACK_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXXX' );`
     
 6. After having that informaiton yuou be able to click on "Add to Slack" Button and authorize your application
@@ -27,6 +27,10 @@ To make this plugin work you will have to create your own application with slack
 # Demo
 ![Invite demo](/invite_demo.png)
 
+# Install on your wordpress
+For now i'm not publishing this on the Wordpress Marketplace 
+You can simple download the slack_invite.zip and install as a plugin on your wordpress.
+Hope this helps anyone
 # Contributores 
 The Slack Interface was first developed by Jarkko Laine <jarkko@jarkkolaine.com>
 https://github.com/jarkkolaine/php-slack-tutorial
