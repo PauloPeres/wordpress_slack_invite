@@ -1,0 +1,152 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ 
+ #myog-slack-invite_slack{
+    background:#fff;
+    border-radius:5px;
+    max-width: 700px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    
+    padding:150px 20px;
+ }
+ 
+ .myog-slack-join-row{
+    text-align: center;
+ }
+ 
+ .myog-slack-join-row img{
+    height:200px;
+ }
+ 
+ .myog-slack-team-logo{
+    display:inline-block;   
+ }
+ 
+ .myog-slack-plus{
+    display: inline-block;
+    height: 170px;
+    width: 20px;
+    font-size: 26px;
+    margin-left: 50px;
+    margin-right: 20px;
+    vertical-align: top;
+    line-height: 210px;
+ }
+ 
+ .myog-slack-slack-logo{
+    display:inline-block;   
+ }
+ 
+  #myog-slack-invite_slack p{
+      font-size:22px;
+  }
+  
+  
+  .myog-slack-form-row{
+      padding:20px;
+  }
+  
+  .myog-slack-input{
+      padding:0 10px;
+  }
+  
+  .myog-slack-input input{
+      background:transparent;
+      border:1px solid #939ba2;
+      margin-bottom:20px;
+      color:#000;
+  }
+  
+  .myog-slack-input input:focus{
+      border:1px solid #fe5000;
+      outline-color: #fe5000;
+  }
+  
+  
+  
+  .myog-slack-inviteform-label{
+    color:#323a45;
+  }
+  
+  .myog-slack-inviteform-button{
+      background:#e01765;
+      color:#fff;
+      padding:10px 50px;
+      display:block;
+      margin:auto;
+      border-radius: 5px;
+  }
+  .myog-slack-inviteform-button:hover{
+      background:#cc2027;
+  }
+  
+  
+.myog-slack-invitealert.myog-slack-invitealert-error{
+    margin:10px 20px;
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442;
+    border: 1px solid #a94442;
+    border-radius: 5px;
+    padding: 5px 20px;
+    display: block;
+}  
+
+
+.myog-slack-invitealert.myog-slack-invitealert-success{
+    background-color: #c3e6cb !important;
+    color: #155724;
+    border: 1px solid #155724;
+    border-radius: 5px;
+    padding: 5px 20px !important;
+}
+  
+  @media only screen and (max-width: 540px) {
+        #myog-slack-invite_slack{
+            padding:0px;
+            
+        }
+        
+        .myog-slack-join-row img{
+            height:150px;
+         }
+         
+          .myog-slack-team-logo{
+            display:block;   
+         }
+         
+         .myog-slack-plus{
+            display: block;
+            margin:auto;
+            height:20px;
+            line-height: 20px;
+            font-size:26px;
+         }
+         
+         .myog-slack-slack-logo{
+            display:block;   
+         }
+    }
+    
+.myog-slack-inviteform-button .idle{
+    display: inline-block;
+}
+.myog-slack-inviteform-button .loading{
+    display: none;
+}
+
+.myog-slack-inviteform-button.active{
+    background:#1a937d !important;
+}
+
+.myog-slack-inviteform-button.active .idle{
+    display: none;
+}
+.myog-slack-inviteform-button.active .loading{
+    display: inline-block;
+}
