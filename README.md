@@ -18,6 +18,7 @@ To make this plugin work you will have to create your own application with slack
     Or you can set on your wp_config.php
 
     `define( 'SLACK_CLIENT_ID', 'XXXXXXXXXXXXX.XXXXXXXXXXXXXXX' );`
+    
     `define( 'SLACK_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXXX' );`
     
 6. After having that informaiton yuou be able to click on "Add to Slack" Button and authorize your application
