@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/wp-option-stubs.php';
 require __DIR__ . '/stubs/Requests.php';
 require __DIR__ . '/stubs/wp_functions.php';
 
