@@ -8,9 +8,10 @@ To make this plugin work you will have to create your own application with slack
 4. Change Permissions on the APP, click on "OAuth & Permissions"
     Add this link as a redirect url
     https://YOURLINK.com/wp-admin/options-general.php?page=slack_settings&action=oauth
+    (uses Slack OAuth V2)
 
     On Scopes choose
-    `admin,channels:write,channels:read`
+    `admin.invites:write,channels:read,channels:write`
 
 5. On the "Basic Information" tab you will get the CLIENT ID and CLIENT SECRET you can either:
     Fill the form with the CLIENT ID and CLIENT SECRET, but it's saved as plain text and anyone with access to you WP Wordpress can se it
