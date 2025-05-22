@@ -67,11 +67,11 @@ class Myog_Slack_Guest_Invite {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'MYOG_SLACK_GUEST_INVITE_VERSION' ) ) {
-			$this->version = MYOG_SLACK_GUEST_INVITE_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
+               if ( defined( 'MYOG_SLACK_GUEST_INVITE_VERSION' ) ) {
+                       $this->version = MYOG_SLACK_GUEST_INVITE_VERSION;
+               } else {
+                       $this->version = '1.1.0';
+               }
 		$this->plugin_name = 'myog-slack-guest-invite';
 
 		$this->load_dependencies();
@@ -170,7 +170,8 @@ class Myog_Slack_Guest_Invite {
 		$plugin_public = new Myog_Slack_Guest_Invite_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+               $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+               $this->loader->add_action( 'init', 'Myog_Slack_Guest_Invite_Public', 'check_post' );
 
 	}
 
