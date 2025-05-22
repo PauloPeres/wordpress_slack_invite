@@ -22,10 +22,10 @@ class SlackOauthTest extends TestCase
         ]));
 
         $slack = new Slack();
-        $access = $slack->do_oauth('code');
+        $access = $slack->do_oauth('code123');
 
         $this->assertSame('token123', $access->get_access_token());
-        $this->assertArrayHasKey('myog_slack_access', $GLOBALS['wp_options']);
+        $this->assertNotFalse(get_option('myog_slack_access'));
     }
 
     public function test_do_oauth_throws_on_error()
