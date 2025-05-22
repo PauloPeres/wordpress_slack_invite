@@ -220,7 +220,7 @@ class Slack {
 		$response = Requests::post( 
 			$this->get_api_url('users.admin.invite'), 
 			$this->get_resquest_headers(false), 
-			$data,
+			$data
 		);
 		
 		// Handle the JSON response
