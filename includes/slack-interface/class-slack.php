@@ -110,7 +110,7 @@ class Slack {
 			$data['redirect_uri'] = $redir_url; 
 		}
 
-		$response = Requests::post( self::$api_root . 'oauth.access', $this->get_resquest_headers(), $data, $this->get_request_options() );
+               $response = Requests::post( self::$api_root . 'oauth.v2.access', $this->get_resquest_headers(), $data, $this->get_request_options() );
 
 		// Handle the JSON response
 		$json_response = json_decode( $response->body );
@@ -121,15 +121,25 @@ class Slack {
 		}
 
 		// The action was completed successfully, store and return access data
-		$this->access = new Slack_Access(
-			array(
-				'access_token' => $json_response->access_token,
-				'scope' => explode( ',', $json_response->scope ),
-				'team_name' => $json_response->team_name,
-				'team_id' => $json_response->team_id,
-				'incoming_webhook' => isset($json_response->incoming_webhook)? $json_response->incoming_webhook : null
-			)
-		);
+               $team_name = '';
+               $team_id   = '';
+               if ( isset( $json_response->team ) ) {
+                       $team_name = $json_response->team->name;
+                       $team_id   = $json_response->team->id;
+               } elseif ( isset( $json_response->team_name ) ) {
+                       $team_name = $json_response->team_name;
+                       $team_id   = $json_response->team_id;
+               }
+
+               $this->access = new Slack_Access(
+                       array(
+                               'access_token' => $json_response->access_token,
+                               'scope' => isset( $json_response->scope ) ? explode( ',', $json_response->scope ) : array(),
+                               'team_name' => $team_name,
+                               'team_id' => $team_id,
+                               'incoming_webhook' => isset($json_response->incoming_webhook)? $json_response->incoming_webhook : null
+                       )
+               );
 		update_option( 'myog_slack_access',$this->access->to_json());
 		return $this->access;
 	}
@@ -217,11 +227,11 @@ class Slack {
 			}
 		}
 		$json = json_encode($data);
-		$response = Requests::post( 
-			$this->get_api_url('users.admin.invite'), 
-			$this->get_resquest_headers(false), 
-			$data,
-		);
+               $response = Requests::post(
+                       $this->get_api_url('admin.users.invite'),
+                       $this->get_resquest_headers(false),
+                       $data,
+               );
 		
 		// Handle the JSON response
 		$json_response = json_decode( $response->body );

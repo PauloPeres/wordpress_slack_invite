@@ -16,7 +16,7 @@
  * Plugin Name:       Slack Guest Invite
  * Plugin URI:        https://bitbucket.org/myowngames/slack-guest-invite/
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Myog.io
  * Author URI:        myog.io
  * License:           GPL-2.0+
@@ -40,7 +40,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes'. DIRECTORY_SEPARATOR .'sla
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'MYOG_SLACK_GUEST_INVITE_VERSION', '1.0.0' );
+define( 'MYOG_SLACK_GUEST_INVITE_VERSION', '1.1.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -80,8 +80,12 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-myog-slack-guest-invite.ph
  */
 function run_myog_slack_guest_invite() {
 
-	$plugin = new Myog_Slack_Guest_Invite();
-	$plugin->run();
+        if ( ! session_id() ) {
+                session_start();
+        }
+
+        $plugin = new Myog_Slack_Guest_Invite();
+        $plugin->run();
 
 }
 run_myog_slack_guest_invite();
