@@ -226,12 +226,12 @@ class Slack {
 				unset($data[$key]);
 			}
 		}
-		$json = json_encode($data);
-               $response = Requests::post(
-                       $this->get_api_url('admin.users.invite'),
-                       $this->get_resquest_headers(false),
-                       $data,
-               );
+		 $json = json_encode($data);
+     $response = Requests::post(
+             $this->get_api_url('admin.users.invite'),
+             $this->get_resquest_headers(false),
+             $data,
+     );
 		
 		// Handle the JSON response
 		$json_response = json_decode( $response->body );

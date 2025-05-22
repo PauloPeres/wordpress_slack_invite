@@ -27,7 +27,12 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+        die;
+}
+
+// Ensure PHP sessions are available for storing form messages
+if ( ! session_id() ) {
+        session_start();
 }
 
 
