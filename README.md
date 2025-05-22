@@ -36,3 +36,57 @@ The Slack Interface was first developed by Jarkko Laine <jarkko@jarkkolaine.com>
 https://github.com/jarkkolaine/php-slack-tutorial
 Thank you Jarkko
 
+
+
+## Repository Overview
+This repository contains a WordPress plugin named **Slack Guest Invite**. It lets visitors request invitations to a Slack workspace. The setup steps earlier in this document explain how to create a Slack app, configure OAuth credentials, and place the shortcode `[slack_invite_form channels=channel-name]` on a page.
+
+The main plugin file `myog-slack-guest-invite.php` defines metadata, registers activation hooks, loads dependencies, and boots the plugin:
+
+```
+ * Plugin Name:       Slack Guest Invite
+ * Plugin URI:        https://bitbucket.org/myowngames/slack-guest-invite/
+ * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Version:           1.0.0
+```
+
+Further down it starts the plugin:
+
+```
+function run_myog_slack_guest_invite() {
+        $plugin = new Myog_Slack_Guest_Invite();
+        $plugin->run();
+}
+run_myog_slack_guest_invite();
+```
+
+### Code Structure
+
+```
+wordpress_slack_invite/
+├── admin/         # Admin-facing code (menu, settings, assets)
+├── includes/      # Core plugin classes and Slack interface
+├── languages/     # Translation template (.pot)
+├── public/        # Public-facing form, scripts, and styles
+├── myog-slack-guest-invite.php  # Plugin bootstrap
+├── uninstall.php  # Cleanup when the plugin is removed
+└── README.md
+```
+
+1. **Admin area** – `admin/class-myog-slack-guest-invite-admin.php` adds a Slack Invite Settings submenu and handles OAuth callbacks and credential storage.
+2. **Public area** – `public/class-myog-slack-guest-invite-public.php` registers the shortcode and processes form submissions to send invites.
+3. **Slack integration** – files in `includes/slack-interface` communicate with Slack. `send_invite()` calls the API and maps errors to messages.
+4. **Loader and i18n** – the loader class manages hooks while another class loads translations.
+5. **Assets** – CSS and JS files style the admin page and form; the public script adds a loading state on submission.
+
+### Key Points for New Contributors
+
+- Slack OAuth credentials (`CLIENT_ID`, `CLIENT_SECRET`) are stored in WordPress options or defined as constants.
+- The `[slack_invite_form channels=...]` shortcode accepts one channel name and resolves the channel ID before inviting.
+- Translation strings live in `languages/myog-slack-guest-invite.pot`.
+
+### Suggested Next Steps to Learn
+
+- Experiment with the plugin in a WordPress environment to see the form and API calls in action.
+- Review how the `Slack` class builds HTTP requests with the Requests library to extend functionality.
+- Explore WordPress Plugin Boilerplate conventions used by the classes to add hooks or features.
