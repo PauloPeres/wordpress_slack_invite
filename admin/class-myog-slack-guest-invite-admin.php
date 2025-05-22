@@ -222,7 +222,7 @@ class Myog_Slack_Guest_Invite_Admin
 					<li>Change Permissions on the APP, click on "OAuth & Permissions"
 						<ul>
 							<li>Add this link as a redirect url <pre><?php echo $redirect_plain_url; ?></pre></li>
-							<li>On Scopes choose <pre>admin,channel:write,channels:read</pre><li>
+							<li>On Scopes choose <pre>admin,channels:write,channels:read</pre><li>
 						</ul>
 					</li>
 					<li>On the "Basic Information" tab yuou will get the <b>CLIENT ID</b> and <b>CLIENT SECRET</b> you can either:
