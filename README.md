@@ -108,3 +108,7 @@ phpunit
 
 The configuration file `phpunit.xml` sets up the bootstrap script and test directory.
 
+
+### Deployment to WordPress.org
+
+Merging changes to the `master` branch triggers the `deploy-wordpress.yml` GitHub Actions workflow. This workflow uses `10up/action-wordpress-plugin-deploy` to push the plugin to the WordPress.org SVN repository and generates a zip archive. Configure repository secrets `WP_SVN_USERNAME` and `WP_SVN_PASSWORD` with your SVN credentials so the action can authenticate.
