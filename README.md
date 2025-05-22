@@ -12,7 +12,7 @@ To make this plugin work you will have to create your own application with slack
     On Scopes choose
     `admin,channels:write,channels:read`
 
-5. On the "Basic Information" tab yuou will get the CLIENT ID and CLIENT SECRET you can either:
+5. On the "Basic Information" tab you will get the CLIENT ID and CLIENT SECRET you can either:
     Fill the form with the CLIENT ID and CLIENT SECRET, but it's saved as plain text and anyone with access to you WP Wordpress can se it
 
     Or you can set on your wp_config.php
@@ -21,7 +21,7 @@ To make this plugin work you will have to create your own application with slack
 
     `define( 'SLACK_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXXX' );`
     
-6. After having that informaiton yuou be able to click on "Add to Slack" Button and authorize your application
+6. After having that information you be able to click on "Add to Slack" Button and authorize your application
 7. With the application authorized, insert the short-code `[slack_invite_form channels=channel-name]` (only one channel name) in one of your pages, or popups, and that should work
 
 # Demo

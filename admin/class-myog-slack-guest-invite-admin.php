@@ -225,7 +225,7 @@ class Myog_Slack_Guest_Invite_Admin
 							<li>On Scopes choose <pre>admin,channels:write,channels:read</pre><li>
 						</ul>
 					</li>
-					<li>On the "Basic Information" tab yuou will get the <b>CLIENT ID</b> and <b>CLIENT SECRET</b> you can either:
+					<li>On the "Basic Information" tab you will get the <b>CLIENT ID</b> and <b>CLIENT SECRET</b> you can either:
 						<ul>
 							<li>Fill the form with the CLIENT ID and CLIENT SECRET, but it's saved as plain text and anyone with access to you WP Wordpress can se it</p>
 							<li>Or you can set on your wp_config.php
@@ -234,7 +234,7 @@ define( 'SLACK_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXXX' );</pre>
 							</li>
 						</ul>
 					</li>
-					<li>After having that informaiton yuou be able to click on "Add to Slack" Button and authorize your application</li>
+					<li>After having that information you be able to click on "Add to Slack" Button and authorize your application</li>
 					<li>With the application authorized, insert the short-code [slack_invite_form channels=channel-name] (only one channel name) in one of your pages, or popups, and that should work</li>
 
 				</ol>
