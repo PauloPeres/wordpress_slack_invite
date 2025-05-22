@@ -65,11 +65,16 @@ class Slack {
 	public function get_api_url($api_call) {
 		return $this->api_team_url ? $this->api_team_url.$api_call : self::$api_root.$api_call;
 	}
-	private function get_resquest_headers($is_json = false, $merge_header_array =[]){
-		$headers = array( 'Accept' => 'application/json' );
-		$token = $this->access->get_access_token();
+       private function get_resquest_headers($is_json = false, $merge_header_array =[]){
+               $headers = array( 'Accept' => 'application/json' );
+               $token = '';
+               if ( $this->access && $this->access->is_configured() ) {
+                       $token = $this->access->get_access_token();
+               }
 
-		if($token) $headers['Authorization'] = "Bearer $token";
+               if ( $token ) {
+                       $headers['Authorization'] = "Bearer $token";
+               }
 
 		if($is_json){
 			$headers['Content-Type'] = "application/json; charset=utf-8";
