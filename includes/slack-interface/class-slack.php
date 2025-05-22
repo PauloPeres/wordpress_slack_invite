@@ -65,7 +65,7 @@ class Slack {
 	public function get_api_url($api_call) {
 		return $this->api_team_url ? $this->api_team_url.$api_call : self::$api_root.$api_call;
 	}
-       private function get_resquest_headers($is_json = false, $merge_header_array =[]){
+       private function get_request_headers($is_json = false, $merge_header_array =[]){
                $headers = array( 'Accept' => 'application/json' );
                $token = '';
                if ( $this->access && $this->access->is_configured() ) {
@@ -115,7 +115,7 @@ class Slack {
 			$data['redirect_uri'] = $redir_url; 
 		}
 
-               $response = Requests::post( self::$api_root . 'oauth.v2.access', $this->get_resquest_headers(), $data, $this->get_request_options() );
+               $response = Requests::post( self::$api_root . 'oauth.v2.access', $this->get_request_headers(), $data, $this->get_request_options() );
 
 		// Handle the JSON response
 		$json_response = json_decode( $response->body );
@@ -158,7 +158,7 @@ class Slack {
 		$data = array( 
 			'token' => $this->access->get_access_token(),
 		);
-		$response = Requests::post( self::$api_root . 'team.info', $this->get_resquest_headers(), $data);
+		$response = Requests::post( self::$api_root . 'team.info', $this->get_request_headers(), $data);
 
 		// Handle the JSON response
 		$json_response = json_decode( $response->body );
@@ -189,7 +189,7 @@ class Slack {
 		$data = array( 
 			'token' => $this->access->get_access_token(),
 		);
-		$response = Requests::post( $this->get_api_url('conversations.list'), $this->get_resquest_headers(), $data);
+		$response = Requests::post( $this->get_api_url('conversations.list'), $this->get_request_headers(), $data);
 		$json_response = json_decode( $response->body );
 		if( ! $json_response->ok ){
 			throw new Slack_API_Exception( $json_response->error );
@@ -234,7 +234,7 @@ class Slack {
 		 $json = json_encode($data);
      $response = Requests::post(
              $this->get_api_url('admin.users.invite'),
-             $this->get_resquest_headers(false),
+             $this->get_request_headers(false),
              $data,
      );
 		
@@ -318,7 +318,7 @@ class Slack {
 			)
 		);
 
-		$response = Requests::post( $url, $this->get_resquest_headers(), $data );
+		$response = Requests::post( $url, $this->get_request_headers(), $data );
 
 		if ( $response->body != 'ok' ) {
 			throw new Slack_API_Exception( 'There was an error when posting to Slack' );
