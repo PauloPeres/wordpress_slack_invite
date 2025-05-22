@@ -90,3 +90,13 @@ wordpress_slack_invite/
 - Experiment with the plugin in a WordPress environment to see the form and API calls in action.
 - Review how the `Slack` class builds HTTP requests with the Requests library to extend functionality.
 - Explore WordPress Plugin Boilerplate conventions used by the classes to add hooks or features.
+
+## Running Tests
+
+This repository uses [PHPUnit](https://phpunit.de/) for unit testing. After installing PHPUnit, run the test suite from the project root:
+
+```bash
+phpunit
+```
+
+The configuration file `phpunit.xml` sets up the bootstrap script and test directory.
