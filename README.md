@@ -1,4 +1,5 @@
 # Slack Guest Invite
+![CI](https://github.com/owner/repo/actions/workflows/phpunit.yml/badge.svg)
 How to make it work
 To make this plugin work you will have to create your own application with slack!
 
@@ -92,6 +93,11 @@ wordpress_slack_invite/
 - Review how the `Slack` class builds HTTP requests with the Requests library to extend functionality.
 - Explore WordPress Plugin Boilerplate conventions used by the classes to add hooks or features.
 
+
+### Continuous Integration
+
+Unit tests run automatically on GitHub Actions for every push and pull request.
+
 ## Running Tests
 
 This repository uses [PHPUnit](https://phpunit.de/) for unit testing. After installing PHPUnit, run the test suite from the project root:
@@ -101,3 +107,4 @@ phpunit
 ```
 
 The configuration file `phpunit.xml` sets up the bootstrap script and test directory.
+

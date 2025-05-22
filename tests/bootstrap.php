@@ -1,9 +1,9 @@
 <?php
-
-// Bootstrap file for PHPUnit tests.
-// Load WordPress option stubs so tests can run without WordPress.
 require_once __DIR__ . '/wp-option-stubs.php';
+require __DIR__ . '/stubs/Requests.php';
+require __DIR__ . '/stubs/wp_functions.php';
 
-// Additional bootstrap logic (autoload, etc.) can be placed here.
-require_once __DIR__ . '/../includes/slack-interface/class-slack-access.php';
-require_once __DIR__ . '/../includes/slack-interface/class-slack-team.php';
+require dirname(__DIR__) . '/includes/slack-interface/class-slack-access.php';
+require dirname(__DIR__) . '/includes/slack-interface/class-slack-team.php';
+require dirname(__DIR__) . '/includes/slack-interface/class-slack-api-exception.php';
+require dirname(__DIR__) . '/includes/slack-interface/class-slack.php';
