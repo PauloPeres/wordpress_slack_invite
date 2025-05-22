@@ -2,9 +2,9 @@
 Contributors: (this should be a list of wordpress.org userid's)
 Donate link: myog.io
 Tags: slack, invite, chat, integration
-Requires at least: 3.0.1
-Tested up to: 4.9.8
-Stable tag: 4.9.8
+Requires at least: 5.0
+Tested up to: 6.5
+Stable tag: 1.1.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
